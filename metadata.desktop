@@ -1,0 +1,22 @@
+[Desktop Entry]
+Name=Snowing
+Keywords=snow;christmas;newyear;2023
+Comment=Snow taking over your desktop
+Type=Service
+Icon=../plasma/plasmoids/Snowing/contents/images/classic.png
+X-KDE-ServiceTypes=Plasma/Applet
+
+X-Plasma-API=declarativeappletscript
+X-Plasma-MainScript=ui/main.qml
+
+X-KDE-PluginInfo-Author=Shu Tu
+X-KDE-PluginInfo-Email=robin@robinkrens.nl
+X-KDE-PluginInfo-Name=Snowing
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=http://plasma.kde.org/
+X-KDE-PluginInfo-Category=Utilities
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-FormFactors=desktop
+

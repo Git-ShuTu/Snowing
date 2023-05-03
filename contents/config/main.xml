@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name=""/>
+
+  <group name="General">
+	  <entry name="userCount" type="String">
+		  <label>Set snow count</label>
+		  <default>Medium</default>
+	  </entry>
+	  <entry name="userSpeed" type="String">
+		  <label>Set falling speed</label>
+		  <default>Normal</default>
+	  </entry>
+	  <entry name="userSize" type="String">
+		  <label>Set snow size</label>
+		  <default>Big</default>
+	  </entry>
+	  <entry name="userStyle" type="String">
+		  <label>Set snow style</label>
+		  <default>Classic</default>
+	  </entry>
+  </group>
+
+</kcfg>
