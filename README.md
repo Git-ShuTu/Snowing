@@ -1,0 +1,2 @@
+# Snowing
+kde plug Snowing
