@@ -1,5 +1,5 @@
 import "../code/utils.js" as Utils
-import QtQuick 2.3
+import QtQuick 2.9
 import QtQuick.Controls 1.2
 import QtQuick.Layouts 1.0
 import org.kde.plasma.components 2.0 as PlasmaComponents
@@ -7,9 +7,43 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.plasmoid 2.0 as Plasmoid
 
 Item {
+    // Timer {
+    //     id: idleTimer
+    //     interval: 5000 // 5秒钟
+    //     repeat: false
+    //     onTriggered: {
+    //         console.log("鼠标已经不动了超过5秒钟！");
+    //         for (var i = snowCount; i < maxSnowCount; i++) {
+    //             var component = Qt.createComponent("snowWindow.qml");
+    //             let temp = component.createObject(root);
+    //             temp.x = Math.random() * screenWidth;
+    //             temp.y = Math.random() * screenHeight;
+    //             temp.width = (Math.random() * 100) % snow[i].radius;
+    //             temp.height = snow[i].width;
+    //             temp.showMaximized();
+    //             snow.push(temp);
+    //         }
+    //     }
+    // }
+    // MouseArea {
+    //     anchors.fill: parent
+    //     hoverEnabled: true
+    //     onPositionChanged: {
+    //         initializeSnow();
+    //         idleTimer.restart();
+    //         for (var i = snowCount; i < snow.length; i++) {
+    //             let n = Math.floor(Math.random() * snow.length);
+    //             snow[n].stop();
+    //             snow[n].destroy();
+    //             snow.splice(n, 1);
+    //         }
+    //     }
+    // }
+
     id: root
 
     property var snow: []
+    // property int maxSnowCount: Utils.getSnowCount('Many')
     property int snowCount: Utils.getSnowCount(plasmoid.configuration.userCount)
     readonly property int screenWidth: Qt.application.screens[0].width
     readonly property int screenHeight: Qt.application.screens[0].height
@@ -25,11 +59,6 @@ Item {
             snow[i].y = Math.random() * screenHeight;
             snow[i].width = (Math.random() * 100) % snow[i].radius;
             snow[i].height = snow[i].width;
-        }
-    }
-
-    function startSnow() {
-        for (var i = 0; i < snowCount; i++) {
             snow[i].showMaximized();
         }
         snowFalling.running = true;
@@ -79,13 +108,10 @@ Item {
         if (snowFalling == null)
             return ;
 
-        var alreadyRunning = snowFalling.running;
+        // var alreadyRunning = snowFalling.running;
         destroySnow();
         plasmoid.configuration.userCount = userCount.textAt(userCount.currentIndex);
         initializeSnow();
-        if (alreadyRunning)
-            startSnow();
-
     }
 
     width: 250
@@ -126,7 +152,6 @@ Item {
             text: "snowing!"
             onClicked: {
                 initializeSnow();
-                startSnow();
             }
         }
 
@@ -181,27 +206,32 @@ Item {
         running: false
         repeat: true
         onTriggered: {
-            for (var i = 0; i < snowCount; i++) {
-                if (snow[i].dir == 0)
-                    snow[i].x += 2;
+            snow.forEach(function(snowflake) {
+                if (snowflake.dir == 0)
+                    snowflake.x += 2;
                 else
-                    snow[i].x -= 2;
-                if (snow[i].disposition++ % snow[i].swirl == 0)
-                    snow[i].dir = !snow[i].dir;
+                    snowflake.x -= 2;
+                if (snowflake.disposition++ % snowflake.swirl == 0)
+                    snowflake.dir = !snowflake.dir;
 
-                if (snow[i].x > screenWidth)
-                    snow[i].x = 0;
-                else if (snow[i].x < 0)
-                    snow[i].x = screenWidth;
-                snow[i].y += snow[i].fallingSpeed;
-                if (snow[i].y > screenHeight)
-                    endSnowFlake(i);
-
-                if (snow[i].rotationDirection == 0)
-                    snow[i].snowFlakeRotation += snow[i].rotationSpeed;
+                if (snowflake.x > screenWidth)
+                    snowflake.x = 0;
+                else if (snowflake.x < 0)
+                    snowflake.x = screenWidth;
+                snowflake.y += snowflake.fallingSpeed;
+                if (snowflake.y > screenHeight) {
+                    // endSnowFlake(snowflake);
+                    snowflake.x = Math.random() * screenWidth;
+                    snowflake.y = -10;
+                    snowflake.width = (Math.random() * 100) % snowflake.radius;
+                    snowflake.height = snowflake.width;
+                    snowflake.showMaximized();
+                }
+                if (snowflake.rotationDirection == 0)
+                    snowflake.snowFlakeRotation += snowflake.rotationSpeed;
                 else
-                    snow[i].snowFlakeRotation -= snow[i].rotationSpeed;
-            }
+                    snowflake.snowFlakeRotation -= snowflake.rotationSpeed;
+            });
         }
     }
 
