@@ -14,7 +14,7 @@
 
 ### 安装
 应该可以通过KDE商店安装
-您还可以将此存储库复制到./local/share/等离子/等离子/
+您还可以将此存储库复制到 $USER/.local/share/plasma/plasmoids/
 
 以下是一些截图：
 
