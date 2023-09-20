@@ -3,7 +3,7 @@ Name=Snowing
 Keywords=snow;christmas;newyear;2023
 Comment=Snow taking over your desktop
 Type=Service
-Icon=../plasma/plasmoids/Snowing/contents/images/classic.png
+Icon=../plasma/plasmoids/Snowing/snow.svg
 X-KDE-ServiceTypes=Plasma/Applet
 
 X-Plasma-API=declarativeappletscript

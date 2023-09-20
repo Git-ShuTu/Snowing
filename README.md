@@ -1,26 +1,27 @@
 ## KDE Plasmoid Snowing
 
-We are delighted to welcome you to the KDE Plasma Snowing plugin! This plugin will bring you a delightful snowflake effect, making your desktop more interesting and beautiful. The KDE Plasma Snowing plugin is an easy-to-use tool that simply adds it to your desktop to make snowflakes dance on your screen. You can customize the color, size, and quantity of snowflakes by adjusting the settings to achieve the best results. Thank you for choosing to use the KDE Plasma Snowing plugin. We hope it will bring you a pleasant user experience! Author: Shu Tu
+我们很高兴欢迎您使用KDE Plasma Snowing插件！该插件将为您带来令人愉悦的雪花效果，使您的桌面更加有趣和美观。KDE Plasma Snowing插件是一个易于使用的工具，只需将其添加到您的桌面即可使雪花在您的屏幕上跳舞。您可以通过调整设置来自定义雪花的颜色、大小和数量，以达到最佳效果。感谢您选择使用KDE Plasma Snowing插件。我们希望它能为您带来愉快的用户体验！作者：舒途
 
-Support:
-* Size, speed, count and style can be changed dynamically
+支持:
+* 大小、速度、数量和样式可以动态更改
 
-Implementation details:
-* Uses special flags of X11 
-* Just QML; no additional install instructions required
-* Since MouseEvents can't be masked with QML this implementation
-is a bit different than what is possible with a QT C++ plugin.
+细节:
 
-### Install
-Should be installable through the KDE Store
-You can also copy this repository in ./local/share/plasma/plasmoids/
+- 使用X11的特殊标志 
+- 只需QML；无需额外的安装说明
+- 由于MouseEvents不能用QML屏蔽此实现
+-  与QTC++插件有一点不同。
 
-Here are some screenshots: 
+### 安装
+应该可以通过KDE商店安装
+您还可以将此存储库复制到./local/share/等离子/等离子/
 
-![image-20230503212500459](./image-20230503212500459.png)
+以下是一些截图：
+
+![image-20230920214913709](assets/image-20230920214913709.png)
 
 Classic mode
 
-![image-20230503212603743](./image-20230503212603743.png)
+![image-20230920215322581](assets/image-20230920215322581.png)
 
 Different snow flake, smaller average size
