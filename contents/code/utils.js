@@ -30,6 +30,7 @@ function getSnowSize(sizeStr) {
 	return size;
 }
 
+
 function getSnowStyle(style) {
 	var style;
 	switch (styleStr) {
